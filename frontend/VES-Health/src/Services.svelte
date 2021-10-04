@@ -1,32 +1,38 @@
 <script>
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 
 let services = [
     {"id": "HRM", "color":"", "urls":[{"url": "/ping", "state":"ok"}]},
     {"id": "ECONOMY", "color":"", "urls":[{"url": "/ping", "state":"ok"}]},
     {"id": "PROCUREMENT", "color":"", "urls":[{"url": "/ping", "state":"ok"}]},
-    {"id": "COMMON", "color":"", "urls":[{"url": "/ping", "state":"nok"}]}
+    {"id": "COMMON", "color":"", "urls":[{"url": "/ping", "state":"nok"}]},     
 ];
 
-onMount(() => {
-    async function fetchData() {
-        // fetch services
-        services.forEach(service => {
-            let color="green";
-            service.urls.forEach(url => {
-                color = url.state === "ok" ? "green" : "red";
-            });
-           service.color = color;     
+async function fetchData() {
+    // fetch services
+    let _services = await (await fetch("/status")).json()
+    _services.forEach(service => {
+        let color="green";
+        service.urls.forEach(url => {
+            color = url.state === "ok" ? "green" : "red";
         });
-        console.log(services);
-        services = [...services];
-    }
+        service.color = color;     
+    });
+    console.log(_services);
+    services = _services;
+}
 
+
+onMount(() => {
     const interval = setInterval(fetchData, 3000);
     fetchData();
-
-    return () => clearInterval(interval);
 });
+
+onDestroy(
+    () => {
+        clearInterval(interval);
+    }
+);
 </script>
 
 <style>
