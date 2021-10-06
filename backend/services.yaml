@@ -1,0 +1,79 @@
+---
+- id: HRM 
+  endpoints: 
+    # - url: /hrm/ping
+    #   state: ok
+    - url: /hrm_ws/ping
+      state: ok
+    - url: /altinn_ws/ping
+      state: ok
+    # - url: /hrm/api/ping
+    #   state: ok
+    # - url: /hrm/plus/ping
+    #   state: ok
+  
+- id: ECONOMY 
+  endpoints: 
+#     - url: /autopay/ping
+#       state: ok 
+#     - url: /ebilag/ping
+#       state: ok 
+#     - url: /kasse/ping
+#       state: ok
+#     - url: /citizenselfservice/ping
+#       state: ok
+#     - url: /ebudsjett/ping
+#       state: ok
+#     - url: /ebudsjettendringer/ping
+#       state: ok
+#     - url: /eordre/ping
+#       state: ok
+#     - url: /okonomirapportering/ping
+#       state: ok
+#     - url: /economysettings/ping
+#       state: ok
+#     - url: /erp_ws/ping
+#       state: ok
+    - url: /fakturering_ws/ping
+      state: ok
+    - url: /budsjett_ws/ping
+      state: ok
+#     - url: /economy/search/accountplan/ping
+#       state: ok
+#     - url: /economy/api/ping
+#       state: ok
+    
+- id: PROCUREMENT 
+  endpoints: 
+#     - url: /dvpro_ws/ping
+#       state: ok
+#     - url: /ehandel/ping
+#       state: ok
+    - url: /ehandel_ws/ping
+      state: ok
+#     - url: /behovsmelding/ping
+#       state: ok
+#     - url: /ehandel_mobile_api/ping
+#       state: ok
+#     - url: /fakturabehandling/ping
+#       state: ok
+    - url: /fakturabehandling_ws/ping
+      state: ok
+#     - url: /fakturasjekk/ping
+#       state: ok
+    
+- id: COMMON 
+  endpoints: 
+#     - url: /enterprise_mobile_api/ping
+#       state: ok
+#     - url: /enterprise/ping
+#       state: ok 
+    - url: /enterprise_ws/ping
+      state: ok
+#     - url: /authz/health
+#       state: ok
+#     - url: /enterprise_plusapp_api/ping
+#       state: ok
+#     - url: /vemobil/ping
+#       state: ok
+     

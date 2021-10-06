@@ -11,3 +11,7 @@ COPY --from=frontendBuild /opt/public /opt/backend/static
 RUN mv /opt/backend/static/index.html /opt/backend/templates/
 CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
 
+
+
+
+

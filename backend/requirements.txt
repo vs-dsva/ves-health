@@ -3,3 +3,5 @@ sse-starlette
 aiofiles
 jinja2
 uvicorn[standard]
+requests_async
+pyyaml
